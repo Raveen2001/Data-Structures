@@ -49,4 +49,40 @@ public class BinaryTree {
         }
         return false;
     }
+
+    public void traversePreOrder(){
+        traversePreOrder(root);
+        System.out.println();
+    }
+
+    private void traversePreOrder(Node root){
+        if(root == null) return;
+        System.out.print(root.value + " ");
+        traversePreOrder(root.leftChild);
+        traversePreOrder(root.rightChild);
+    }
+    public void traverseInOrder(){
+        traverseInOrder(root);
+        System.out.println();
+    }
+
+    private void traverseInOrder(Node root){
+        if(root == null) return;
+        traverseInOrder(root.rightChild);
+        System.out.print(root.value + " ");
+        traverseInOrder(root.leftChild);
+
+    }
+
+    public void traversePostOrder(){
+        traversePostOrder(root);
+        System.out.println();
+    }
+
+    private void  traversePostOrder(Node root){
+        if(root == null) return;
+        traversePostOrder(root.leftChild);
+        traversePostOrder(root.rightChild);
+        System.out.print(root.value + " ");
+    }
 }

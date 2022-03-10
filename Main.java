@@ -13,6 +13,9 @@ public class Main {
         System.out.println(tree.find(10));
         System.out.println(tree.find(20));
 
+        tree.traversePreOrder();
+        tree.traverseInOrder();
+        tree.traversePostOrder();
         System.out.println("Done");
 
     }
