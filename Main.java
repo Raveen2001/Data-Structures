@@ -29,8 +29,9 @@ public class Main {
         System.out.println(tree.height());
 
         System.out.println(tree.min());
-
+//        tree.swapRoot();
         System.out.println(tree.equals(tree2));
+        System.out.println(tree.isBinarySearchTree());
         System.out.println("Done");
 
     }
