@@ -1,4 +1,4 @@
-public class Main {
+public class BinaryTreeDriver {
     public static void main(String[] args) {
         System.out.println("Hello world");
         BinaryTree tree = new BinaryTree();
