@@ -16,7 +16,6 @@ public class BinaryTree {
 
     private Node root;
 
-
     public void insert(int value){
         if(root == null){
             root = new Node(value);
@@ -54,18 +53,17 @@ public class BinaryTree {
         traversePreOrder(root);
         System.out.println();
     }
-
     private void traversePreOrder(Node root){
         if(root == null) return;
         System.out.print(root.value + " ");
         traversePreOrder(root.leftChild);
         traversePreOrder(root.rightChild);
     }
+
     public void traverseInOrder(){
         traverseInOrder(root);
         System.out.println();
     }
-
     private void traverseInOrder(Node root){
         if(root == null) return;
         traverseInOrder(root.rightChild);
@@ -78,7 +76,6 @@ public class BinaryTree {
         traversePostOrder(root);
         System.out.println();
     }
-
     private void  traversePostOrder(Node root){
         if(root == null) return;
         traversePostOrder(root.leftChild);
@@ -89,7 +86,6 @@ public class BinaryTree {
     public int height(){
         return height(root);
     }
-
     private int height(Node root){
         if(root == null) return -1;
         if(isLeafNode(root)) return 0;
@@ -107,7 +103,6 @@ public class BinaryTree {
         }
         return cur.value;
     }
-
     private int min(Node root){
         if(root == null) return Integer.MAX_VALUE;
         if(isLeafNode(root)) return root.value;
@@ -122,7 +117,6 @@ public class BinaryTree {
         if(tree2 == null) return false;
         return equals(root, tree2.root);
     }
-
     private boolean equals(Node tree1, Node tree2){
         if(tree1 == null && tree2 == null) return true;
         if(tree1 == null || tree2 == null) return false;
@@ -138,11 +132,22 @@ public class BinaryTree {
     public boolean isBinarySearchTree(){
         return isBinarySearchTree(root, Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
-
     private boolean isBinarySearchTree(Node root, int min, int max){
         if(root == null) return true;
         if(root.value < min || root.value > max) return false;
         return isBinarySearchTree(root.leftChild, min, root.value - 1) && isBinarySearchTree(root.rightChild, root.value + 1, max);
+    }
+
+    public void printNodeAtDistance(int distance){
+        printNodeAtDistance(root, distance);
+    }
+    private void printNodeAtDistance(Node root, int distance){
+        if(root == null) return;
+        if(distance == 0){
+            System.out.println(root.value);
+        }
+        printNodeAtDistance(root.leftChild, distance - 1);
+        printNodeAtDistance(root.rightChild, distance - 1);
     }
 
     private boolean isLeafNode(Node node){

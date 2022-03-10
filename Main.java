@@ -32,6 +32,8 @@ public class Main {
 //        tree.swapRoot();
         System.out.println(tree.equals(tree2));
         System.out.println(tree.isBinarySearchTree());
+
+        tree.printNodeAtDistance(2);
         System.out.println("Done");
 
     }
