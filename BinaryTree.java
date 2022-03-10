@@ -97,7 +97,9 @@ public class BinaryTree {
     }
 
     public int min(){
-//        return  min(root); // binary tree;
+//        return  min(root); // for  binary tree;
+
+        // for Binary Search Tree
         if(root == null) return -1;
         var cur = root;
         while(cur.leftChild != null){
@@ -113,6 +115,17 @@ public class BinaryTree {
         int right = min(root.rightChild);
 
         return (Math.min(Math.min(left, right), root.value));
+    }
+
+
+    public boolean equals(BinaryTree tree2){
+        return equals(root, tree2.root);
+    }
+
+    private boolean equals(Node tree1, Node tree2){
+        if(tree1 == null && tree2 == null) return true;
+        if(tree1 == null || tree2 == null) return false;
+        return ((tree1.value == tree2.value) && equals(tree1.leftChild, tree2.leftChild) && equals(tree1.rightChild, tree2.rightChild));
     }
 
     private boolean isLeafNode(Node node){

@@ -10,6 +10,15 @@ public class Main {
         tree.insert(8);
         tree.insert(10);
 
+        BinaryTree tree2 = new BinaryTree();
+        tree2.insert(7);
+        tree2.insert(4);
+        tree2.insert(9);
+        tree2.insert(1);
+        tree2.insert(6);
+        tree2.insert(8);
+        tree2.insert(10);
+
         System.out.println(tree.find(10));
         System.out.println(tree.find(20));
 
@@ -20,6 +29,8 @@ public class Main {
         System.out.println(tree.height());
 
         System.out.println(tree.min());
+
+        System.out.println(tree.equals(tree2));
         System.out.println("Done");
 
     }
