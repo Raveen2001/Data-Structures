@@ -1,5 +1,7 @@
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class BinaryTree {
     private class Node{
@@ -84,6 +86,21 @@ public class BinaryTree {
         traversePostOrder(root.leftChild);
         traversePostOrder(root.rightChild);
         System.out.print(root.value + " ");
+    }
+
+    public void levelOrderTraversal(){
+        if(root == null) throw new IllegalStateException();
+        Queue<Node> queue = new LinkedList<>();
+        List<Integer> res = new ArrayList<>();
+        queue.offer(root);
+        while (!queue.isEmpty()){
+            Node cur = queue.poll();
+            res.add(cur.value);
+            if(cur.leftChild != null) queue.offer(cur.leftChild);
+            if(cur.rightChild != null) queue.offer(cur.rightChild);
+        }
+
+        System.out.println(res);
     }
 
     public int height(){

@@ -35,6 +35,7 @@ public class Main {
 
         tree.printNodeAtDistance(2);
         System.out.println(tree.getNodeAtDistance(2));
+        tree.levelOrderTraversal();
         System.out.println("Done");
 
     }
