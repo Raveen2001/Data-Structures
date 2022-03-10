@@ -18,30 +18,35 @@ public class BinaryTree {
 
 
     public void insert(int value){
-
-        insert(root, value);
-
-    }
-
-    public  void insert(Node node, int value){
-        if(node == null){
+        if(root == null){
             root = new Node(value);
             return;
         }
-
-        if(node.value > value){
-            if(node.leftChild == null){
-                node.leftChild = new Node(value);
-                return;
+        var cur = root;
+        while(true){
+            if(cur.value > value){
+                if(cur.leftChild == null){
+                    cur.leftChild = new Node(value);
+                    break;
+                }
+                cur = cur.leftChild;
+            }else{
+                if(cur.rightChild == null){
+                    cur.rightChild = new Node(value);
+                    break;
+                }
+                cur = cur.rightChild;
             }
-            insert(node.leftChild, value);
-        }else{
-            if(node.rightChild == null){
-                node.rightChild = new Node(value);
-                return;
-            }
-            insert(node.rightChild, value);
         }
     }
 
+    public boolean find(int value){
+        var cur = root;
+        while(cur != null){
+            if(cur.value == value) return true;
+            else if(cur.value > value) cur = cur.leftChild;
+            else cur = cur.rightChild;
+        }
+        return false;
+    }
 }
