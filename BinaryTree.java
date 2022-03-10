@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class BinaryTree {
     private class Node{
         int value;
@@ -145,9 +148,25 @@ public class BinaryTree {
         if(root == null) return;
         if(distance == 0){
             System.out.println(root.value);
+            return;
         }
         printNodeAtDistance(root.leftChild, distance - 1);
         printNodeAtDistance(root.rightChild, distance - 1);
+    }
+
+    public List<Integer> getNodeAtDistance(int distance){
+        List<Integer> res = new ArrayList<>();
+        getNodeAtDistance(root, distance, res);
+        return res;
+    }
+    private void getNodeAtDistance(Node root, int distance, List<Integer> res){
+        if(root == null) return;
+        if(distance == 0){
+            res.add(root.value);
+            return;
+        }
+        getNodeAtDistance(root.leftChild, distance - 1, res);
+        getNodeAtDistance(root.rightChild, distance - 1, res);
     }
 
     private boolean isLeafNode(Node node){

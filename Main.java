@@ -34,6 +34,7 @@ public class Main {
         System.out.println(tree.isBinarySearchTree());
 
         tree.printNodeAtDistance(2);
+        System.out.println(tree.getNodeAtDistance(2));
         System.out.println("Done");
 
     }
