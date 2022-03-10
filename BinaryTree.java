@@ -96,7 +96,18 @@ public class BinaryTree {
         return (1 + Math.max(height(root.leftChild), height(root.rightChild)));
     }
 
+    public int min(){
+        return  min(root); // binary tree;
+    }
 
+    private int min(Node root){
+        if(root == null) return Integer.MAX_VALUE;
+        if(isLeafNode(root)) return root.value;
+        int left = min(root.leftChild);
+        int right = min(root.rightChild);
+
+        return (Math.min(Math.min(left, right), root.value));
+    }
 
     private boolean isLeafNode(Node node){
         return (root.leftChild == null && root.rightChild == null);
