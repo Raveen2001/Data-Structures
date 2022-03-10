@@ -18,6 +18,8 @@ public class Main {
         tree.traversePostOrder();
 
         System.out.println(tree.height());
+
+        System.out.println(tree.min());
         System.out.println("Done");
 
     }

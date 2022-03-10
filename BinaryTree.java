@@ -97,7 +97,13 @@ public class BinaryTree {
     }
 
     public int min(){
-        return  min(root); // binary tree;
+//        return  min(root); // binary tree;
+        if(root == null) return -1;
+        var cur = root;
+        while(cur.leftChild != null){
+            cur = cur.leftChild;
+        }
+        return cur.value;
     }
 
     private int min(Node root){
