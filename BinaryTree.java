@@ -85,4 +85,20 @@ public class BinaryTree {
         traversePostOrder(root.rightChild);
         System.out.print(root.value + " ");
     }
+
+    public int height(){
+        return height(root);
+    }
+
+    private int height(Node root){
+        if(root == null) return -1;
+        if(isLeafNode(root)) return 0;
+        return (1 + Math.max(height(root.leftChild), height(root.rightChild)));
+    }
+
+
+
+    private boolean isLeafNode(Node node){
+        return (root.leftChild == null && root.rightChild == null);
+    }
 }
